@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A94A7C77-4163-4B94-B9BD-F1A14EED179C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{3D3A2402-80D6-4793-988B-C60AB621435B}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ex04.Menus.Test</RootNamespace>
-    <AssemblyName>Ex04.Menus.Test</AssemblyName>
+    <RootNamespace>Ex04.Menus.Interfaces.Logic</RootNamespace>
+    <AssemblyName>Ex04.Menus.Interfaces.Logic</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,23 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Ex04.Menus.Test.Program</StartupObject>
+    <StartupObject />
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex04.Menus.Delegates\Ex04.Menus.Delegates.csproj">
-      <Project>{23c6cd3a-e6d6-499d-be7b-6c75d673028d}</Project>
-      <Name>Ex04.Menus.Delegates</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
-      <Project>{7e29c8db-786e-45ee-bea6-fa27a5067530}</Project>
-      <Name>Ex04.Menus.Interfaces</Name>
-    </ProjectReference>
+    <Compile Include="Actions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

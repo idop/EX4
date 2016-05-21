@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActionItem.cs" />
-    <Compile Include="Controler.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="ICountCharsActionListener.cs" />
     <Compile Include="IShowDateActionListener.cs" />
     <Compile Include="IShowTimeActionListener.cs" />

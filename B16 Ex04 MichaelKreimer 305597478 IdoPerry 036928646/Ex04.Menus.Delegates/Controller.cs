@@ -1,50 +1,31 @@
 ﻿using System;
-using Ex04.Menus.Interfaces.Logic;
+using System.Collections.Generic;
+using System.Text;
 
-
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Delegates
 {
-    public class Controler : ICountCharsActionListener, ICountSpacesActionListener, IShowDateActionListener, IShowTimeActionListener, IShowVersionListener
+    public class Controller
     {
-        private const bool  v_IsMainMenu = true;
         private Menu m_MainMenu;
-       
+        private const bool v_IsMainMenu = true;
+        public readonly List<MenuItem> m_Employees = new List<MenuItem>();
 
         public void Init()
         {
-            m_MainMenu = new Menu("Welcome the the main menu implemented with interfaces",v_IsMainMenu);
+            m_MainMenu = new Menu("Welcome the the main menu implemented with delegates", v_IsMainMenu);
             addVersionAndActionsSubMenu();
             addShowDateTimeSubMenu();
             m_MainMenu.Show();
         }
 
-        private void addShowDateTimeSubMenu()
-        {
-            Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            ActionItem action = new ActionItem("Show Time");
-            action.AddShowTimeActionListener(this);
-            ShowDateTimeSubMenu.AddMenuItem(action);
-            action = new ActionItem("Show Date");
-            action.AddShowDateActionListener(this);
-            ShowDateTimeSubMenu.AddMenuItem(action);
-            m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
-        }
-
         private void addVersionAndActionsSubMenu()
         {
-            Menu versionAndActionsSubMenu = new Menu("Version and Actions");
-            ActionItem action = new ActionItem("Show Version");
-            action.AddShowVersionListener(this);
-            versionAndActionsSubMenu.AddMenuItem(action);
-            Menu ActionsSubMenu = new Menu("Actions");
-            action = new ActionItem("Chars Count");
-            action.AddCountCharsActionListener(this);
-            ActionsSubMenu.AddMenuItem(action);
-            action = new ActionItem("Count Spaces");
-            action.AddCountSpacesActionListener(this);
-            ActionsSubMenu.AddMenuItem(action);
-            versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
-            m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
+            Menu addVersionAndActionMenuItem = new Menu("Welcome to add version sub menu", false);
+        }
+
+        private void addShowDateTimeSubMenu()
+        {
+            throw new NotImplementedException();
         }
 
         public void CountChars()
@@ -56,7 +37,7 @@ namespace Ex04.Menus.Interfaces
             input = Console.ReadLine();
             numberOfCharacter = Actions.CountChars(input);
             Console.WriteLine("There are {0} characters in: {1}", numberOfCharacter, input);
-            waitForAnyKey(); 
+            waitForAnyKey();
         }
 
         public void CountSpaces()
@@ -70,7 +51,7 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("There are {0} Spaces in: {1}", numberOfSpaces, input);
             waitForAnyKey();
         }
-        
+
         public void ShowDate()
         {
             Console.Clear();

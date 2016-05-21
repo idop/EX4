@@ -1,11 +1,15 @@
-﻿namespace Ex04.Menus.Test
+﻿using Ex04.Menus;
+namespace Ex04.Menus.Test
 {
     public static class Program
     {
-        public static void Main()
+
+    public static void Main()
         {
-            Interfaces.Controler controler = new Interfaces.Controler();
-            controler.Init();
+            Interfaces.Controller iController = new Interfaces.Controller();
+            iController.Init();
+            Delegates.Controller dController = new Delegates.Controller();
+            dController.Init();
         }
     }
 }

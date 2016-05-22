@@ -90,7 +90,7 @@ namespace Ex04.Menus.Interfaces
             }
             else if(menuItemToActivate is ActionItem)
             {
-                ((ActionItem)menuItemToActivate).NotifayAllListeners();
+                ((ActionItem)menuItemToActivate).NotifyAllListeners();
             }
         }
 

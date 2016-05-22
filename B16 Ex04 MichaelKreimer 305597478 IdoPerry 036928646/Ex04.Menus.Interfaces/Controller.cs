@@ -4,7 +4,7 @@ using Ex04.Menus.Interfaces.Logic;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class Controller : ICountCharsActionListener, ICountSpacesActionListener, IShowDateActionListener, IShowTimeActionListener, IShowVersionListener
+    public class Controller : IActionListener
     {
         private const bool  v_IsMainMenu = true;
         private Menu m_MainMenu;
@@ -21,11 +21,11 @@ namespace Ex04.Menus.Interfaces
         private void addShowDateTimeSubMenu()
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            ActionItem action = new ActionItem("Show Time");
-            action.AddShowTimeActionListener(this);
+            ActionItem action = new ActionItem("Show Time", ActionItem.eMenuAction.ShowTime);
+            action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
-            action = new ActionItem("Show Date");
-            action.AddShowDateActionListener(this);
+            action = new ActionItem("Show Date", ActionItem.eMenuAction.ShowDate);
+            action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
@@ -33,21 +33,46 @@ namespace Ex04.Menus.Interfaces
         private void addVersionAndActionsSubMenu()
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
-            ActionItem action = new ActionItem("Show Version");
-            action.AddShowVersionListener(this);
+            ActionItem action = new ActionItem("Show Version", ActionItem.eMenuAction.ShowVersion);
+            action.AddActionListener(this);
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
-            action = new ActionItem("Chars Count");
-            action.AddCountCharsActionListener(this);
+            action = new ActionItem("Chars Count", ActionItem.eMenuAction.CountChars);
+            action.AddActionListener(this);
             ActionsSubMenu.AddMenuItem(action);
-            action = new ActionItem("Count Spaces");
-            action.AddCountSpacesActionListener(this);
+            action = new ActionItem("Count Spaces", ActionItem.eMenuAction.CountSpace);
+            action.AddActionListener(this);
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
         }
 
-        public void CountChars()
+        public void DoAction(ActionItem.eMenuAction i_MenuAction)
+        {
+            switch (i_MenuAction)
+            {
+                case ActionItem.eMenuAction.ShowVersion:
+                    showVersion();
+                    break;
+                case ActionItem.eMenuAction.CountChars:
+                    countChars();
+                    break;
+                case ActionItem.eMenuAction.CountSpace:
+                    countSpaces();
+                    break;
+                case ActionItem.eMenuAction.ShowDate:
+                    showDate();
+                    break;
+                case ActionItem.eMenuAction.ShowTime:
+                    showTime();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void countChars()
         {
             int numberOfCharacter;
             string input;
@@ -59,7 +84,7 @@ namespace Ex04.Menus.Interfaces
             waitForAnyKey(); 
         }
 
-        public void CountSpaces()
+        private void countSpaces()
         {
             int numberOfSpaces;
             string input;
@@ -70,22 +95,22 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("There are {0} Spaces in: {1}", numberOfSpaces, input);
             waitForAnyKey();
         }
-        
-        public void ShowDate()
+
+        private void showDate()
         {
             Console.Clear();
             Console.WriteLine("Today's date is: {0:d}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowTime()
+        private void showTime()
         {
             Console.Clear();
             Console.WriteLine("Current Time is: {0:T}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowVersion()
+        private void showVersion()
         {
             Console.Clear();
             Console.WriteLine("Version: 16.2.4.0");

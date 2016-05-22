@@ -1,18 +1,16 @@
 ﻿using System;
 using Ex04.Menus.Interfaces.Logic;
 
-
 namespace Ex04.Menus.Interfaces
 {
     public class Controller : IActionListener
     {
-        private const bool  v_IsMainMenu = true;
+        private const bool v_IsMainMenu = true;
         private Menu m_MainMenu;
-       
 
         public void Init()
         {
-            m_MainMenu = new Menu("Welcome the the main menu implemented with interfaces",v_IsMainMenu);
+            m_MainMenu = new Menu("Welcome the the main menu implemented with interfaces", v_IsMainMenu);
             addVersionAndActionsSubMenu();
             addShowDateTimeSubMenu();
             m_MainMenu.Show();
@@ -21,11 +19,11 @@ namespace Ex04.Menus.Interfaces
         private void addShowDateTimeSubMenu()
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            ActionItem action = new ActionItem("Show Time", ActionItem.eMenuAction.ShowTime);
-            action.AddActionListener(this);
+            ActionItem action = new ActionItem("Show Time");
+            action.AddActionListener(this, ActionItem.eMenuAction.ShowTime);
             ShowDateTimeSubMenu.AddMenuItem(action);
-            action = new ActionItem("Show Date", ActionItem.eMenuAction.ShowDate);
-            action.AddActionListener(this);
+            action = new ActionItem("Show Date");
+            action.AddActionListener(this, ActionItem.eMenuAction.ShowDate);
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
@@ -33,15 +31,15 @@ namespace Ex04.Menus.Interfaces
         private void addVersionAndActionsSubMenu()
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
-            ActionItem action = new ActionItem("Show Version", ActionItem.eMenuAction.ShowVersion);
-            action.AddActionListener(this);
+            ActionItem action = new ActionItem("Show Version");
+            action.AddActionListener(this, ActionItem.eMenuAction.ShowVersion);
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
-            action = new ActionItem("Chars Count", ActionItem.eMenuAction.CountChars);
-            action.AddActionListener(this);
+            action = new ActionItem("Chars Count");
+            action.AddActionListener(this, ActionItem.eMenuAction.CountChars);
             ActionsSubMenu.AddMenuItem(action);
-            action = new ActionItem("Count Spaces", ActionItem.eMenuAction.CountSpace);
-            action.AddActionListener(this);
+            action = new ActionItem("Count Spaces");
+            action.AddActionListener(this, ActionItem.eMenuAction.CountSpace);
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
@@ -69,7 +67,6 @@ namespace Ex04.Menus.Interfaces
                 default:
                     break;
             }
-
         }
 
         private void countChars()

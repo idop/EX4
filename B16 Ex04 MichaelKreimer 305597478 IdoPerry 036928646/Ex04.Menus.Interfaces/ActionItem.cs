@@ -6,8 +6,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class ActionItem : MenuItem
     {
-        private List<IActionListener> m_ActionListeners;
-        private eMenuAction m_MenuAction;
+        private List<KeyValuePair<IActionListener, eMenuAction>> m_ActionListeners;
 
         public enum eMenuAction
         {
@@ -18,19 +17,19 @@ namespace Ex04.Menus.Interfaces
             ShowTime
         }
 
-        public void AddActionListener(IActionListener i_Listener)
+        public void AddActionListener(IActionListener i_Listener, eMenuAction i_MenuAction)
         {
             if (m_ActionListeners == null)
             {
-                m_ActionListeners = new List<IActionListener>();
+                m_ActionListeners = new List<KeyValuePair<IActionListener, eMenuAction>>();
             }
 
-            m_ActionListeners.Add(i_Listener);
+            m_ActionListeners.Add(new KeyValuePair<IActionListener, eMenuAction>(i_Listener, i_MenuAction));
         }
 
-        public void RemoveActionListener(IActionListener i_Listener)
+        public void RemoveActionListener(IActionListener i_Listener, eMenuAction i_MenuAction)
         {
-            m_ActionListeners.Remove(i_Listener);
+            m_ActionListeners.Remove(new KeyValuePair<IActionListener, eMenuAction>(i_Listener, i_MenuAction));
             if (m_ActionListeners.Count == 0)
             {
                 m_ActionListeners = null;
@@ -41,17 +40,16 @@ namespace Ex04.Menus.Interfaces
         {
             if (m_ActionListeners != null)
             {
-                foreach (IActionListener listener in m_ActionListeners)
+                foreach (KeyValuePair<IActionListener, eMenuAction> listener in m_ActionListeners)
                 {
-                    listener.DoAction(m_MenuAction);
+                    listener.Key.DoAction(listener.Value);
                 }
             }
         }
 
-        public ActionItem(string i_Title, eMenuAction i_MenuAction)
+        public ActionItem(string i_Title)
         {
             m_Title = i_Title;
-            m_MenuAction = i_MenuAction;
         }
     }
 }

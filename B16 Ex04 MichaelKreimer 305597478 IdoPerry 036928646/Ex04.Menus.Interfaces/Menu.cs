@@ -46,7 +46,6 @@ namespace Ex04.Menus.Interfaces
             {
                 try
                 {
-
                     userChoise = int.Parse(Console.ReadLine());
                     if (isUserChoiseValid(userChoise))
                     {
@@ -68,12 +67,10 @@ namespace Ex04.Menus.Interfaces
                 }
                 catch (FormatException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
             }

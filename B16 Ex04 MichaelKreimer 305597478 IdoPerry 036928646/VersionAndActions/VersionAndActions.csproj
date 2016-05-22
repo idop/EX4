@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{23C6CD3A-E6D6-499D-BE7B-6C75D673028D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{E7D38A00-BB45-4E83-BF59-63E10F66A2D2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ex04.Menus.Delegates</RootNamespace>
-    <AssemblyName>Ex04.Menus.Delegates</AssemblyName>
+    <RootNamespace>VersionAndActions</RootNamespace>
+    <AssemblyName>VersionAndActions</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,19 +31,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="ActionItem.cs" />
-    <Compile Include="Actions.cs" />
-    <Compile Include="Controller.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="VersionAndActions.cs" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

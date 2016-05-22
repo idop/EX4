@@ -20,12 +20,31 @@ namespace Ex04.Menus.Delegates
 
         private void addVersionAndActionsSubMenu()
         {
-            Menu addVersionAndActionMenuItem = new Menu("Welcome to add version sub menu", false);
+            Menu versionAndActionsSubMenu = new Menu("Version and Actions");
+            //ActionItem action = new ActionItem("Show Version");
+            //action.AddShowVersionListener(this);
+            //versionAndActionsSubMenu.AddMenuItem(action);
+            Menu ActionsSubMenu = new Menu("Actions");
+            //action = new ActionItem("Chars Count");
+            //action.AddCountCharsActionListener(this);
+            //ActionsSubMenu.AddMenuItem(action);
+            //action = new ActionItem("Count Spaces");
+            //action.AddCountSpacesActionListener(this);
+            //ActionsSubMenu.AddMenuItem(action);
+            versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
+            m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
         }
 
         private void addShowDateTimeSubMenu()
         {
-            throw new NotImplementedException();
+            Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
+            //ActionItem action = new ActionItem("Show Time");
+            //action.AddShowTimeActionListener(this);
+            //ShowDateTimeSubMenu.AddMenuItem(action);
+            //action = new ActionItem("Show Date");
+            //action.AddShowDateActionListener(this);
+            //ShowDateTimeSubMenu.AddMenuItem(action);
+            m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
 
         public void CountChars()

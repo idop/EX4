@@ -24,6 +24,7 @@ namespace Ex04.Menus.Delegates
 
             m_MenuItems.Add(i_MenuItem);
         }
+        public abstract void Show();
 
         public void RemoveMenuItem(MenuItem i_MenuItem)
         {

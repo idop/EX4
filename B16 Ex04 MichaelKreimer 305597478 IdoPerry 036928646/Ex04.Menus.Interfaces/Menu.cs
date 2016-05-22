@@ -9,7 +9,7 @@ namespace Ex04.Menus.Interfaces
         private const string k_ChooseMenuItemMessage = "Please Choose one of the following options:";
         private const string k_BackChoiseMessage = "Press 0 to go back to previous menu.";
         private const string k_ExitChoiseMessage = "Press 0 to exit.";
-        private const string k_InvalidInputMessage = "Invalid Choise please try again.";
+        private const string k_InvalidInputMessage = "Invalid Choice please try again.";
         private const int k_ExitOrBackOptionValue = 0;
         private bool m_IsMainMenu = false;
 

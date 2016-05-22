@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
+    delegate void showDelegate();
     public class Controller
     {
         private Menu m_MainMenu;
@@ -20,10 +21,10 @@ namespace Ex04.Menus.Delegates
 
         private void addVersionAndActionsSubMenu()
         {
-            Menu versionAndActionsSubMenu = new Menu("Version and Actions");
-            //ActionItem action = new ActionItem("Show Version");
-            //action.AddShowVersionListener(this);
-            //versionAndActionsSubMenu.AddMenuItem(action);
+            Menu versionAndActionsSubMenu = new Menu("Version and Actions",false);
+            ActionItem action = new ActionItem("Show Version");
+            action.m_ShowAction += this.ShowVersion;
+            versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
             //action = new ActionItem("Chars Count");
             //action.AddCountCharsActionListener(this);

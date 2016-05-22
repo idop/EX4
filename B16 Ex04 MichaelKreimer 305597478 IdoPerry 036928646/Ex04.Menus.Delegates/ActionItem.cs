@@ -4,18 +4,17 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    public class ActionItem
+    public delegate void Action();
+    public class ActionItem: MenuItem
     {
-        public event Action<string> m_DoAction;
+        public event Action m_ShowAction;
         public string m_InputStr;
-        public ActionItem(string i_InputStr, Action<string> i_Action)
+        public ActionItem(string i_InputStr)
         {
-            m_DoAction = i_Action;
-            m_InputStr = i_InputStr;
         }
         private void notifyListeners()
         {
-            m_DoAction.Invoke(m_InputStr);
+            m_ShowAction.Invoke();
         }
     }
 }

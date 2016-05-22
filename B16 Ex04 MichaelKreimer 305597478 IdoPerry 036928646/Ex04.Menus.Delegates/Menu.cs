@@ -24,7 +24,7 @@ namespace Ex04.Menus.Delegates
             m_IsMainMenu = i_IsMainMenu;
         }
 
-        public override void Show()
+        public void Show()
         {
             bool userWantsToGoBack = false;
             while (!userWantsToGoBack)

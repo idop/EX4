@@ -21,17 +21,17 @@ namespace Ex04.Menus.Delegates
 
         private void addVersionAndActionsSubMenu()
         {
-            Menu versionAndActionsSubMenu = new Menu("Version and Actions",false);
+            Menu versionAndActionsSubMenu = new Menu("Version and Actions");
             ActionItem action = new ActionItem("Show Version");
             action.m_ShowAction += this.ShowVersion;
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
-            //action = new ActionItem("Chars Count");
-            //action.AddCountCharsActionListener(this);
-            //ActionsSubMenu.AddMenuItem(action);
-            //action = new ActionItem("Count Spaces");
-            //action.AddCountSpacesActionListener(this);
-            //ActionsSubMenu.AddMenuItem(action);
+            action = new ActionItem("Chars Count");
+            action.m_ShowAction += this.CountChars;
+            ActionsSubMenu.AddMenuItem(action);
+            action = new ActionItem("Count Spaces");
+            action.m_ShowAction += this.CountSpaces;
+            ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
         }
@@ -39,12 +39,12 @@ namespace Ex04.Menus.Delegates
         private void addShowDateTimeSubMenu()
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            //ActionItem action = new ActionItem("Show Time");
-            //action.AddShowTimeActionListener(this);
-            //ShowDateTimeSubMenu.AddMenuItem(action);
-            //action = new ActionItem("Show Date");
-            //action.AddShowDateActionListener(this);
-            //ShowDateTimeSubMenu.AddMenuItem(action);
+            ActionItem action = new ActionItem("Show Time");
+            action.m_ShowAction += this.ShowTime;
+            ShowDateTimeSubMenu.AddMenuItem(action);
+            action = new ActionItem("Show Date");
+            action.m_ShowAction += this.ShowDate;
+            ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
 

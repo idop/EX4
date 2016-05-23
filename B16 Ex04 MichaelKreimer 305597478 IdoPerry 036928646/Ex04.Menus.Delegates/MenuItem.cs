@@ -7,6 +7,7 @@ namespace Ex04.Menus.Delegates
         protected string m_Title;
         protected List<MenuItem> m_MenuItems;
 
+        public abstract void Show();
         public string Title
         {
             get

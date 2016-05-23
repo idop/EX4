@@ -10,7 +10,7 @@ namespace Ex04.Menus.Delegates
         {
             init();
         }
-        public void Show()
+        public override void Show()
         {
             throw new NotImplementedException();
         }

@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    delegate void showDelegate();
     public class Controller
     {
-        private Menu m_MainMenu;
         private const bool v_IsMainMenu = true;
         public readonly List<MenuItem> m_Employees = new List<MenuItem>();
+        private Menu m_MainMenu;
 
         public void Init()
         {

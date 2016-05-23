@@ -5,7 +5,8 @@ using System.Text;
 namespace Ex04.Menus.Delegates
 {
     public delegate void Notifier<T>(T i_Param);
-    class Menu : MenuItem
+
+    public class Menu : MenuItem
     {
         private const string k_ChooseMenuItemMessage = "Please choose one of the following options:";
         private const string k_BackChoiseMessage = "Press 0 to go back to previous menu.";
@@ -13,6 +14,7 @@ namespace Ex04.Menus.Delegates
         private const string k_InvalidInputMessage = "Invalid choice please try again.";
         private const int k_ExitOrBackOptionValue = 0;
         private bool m_IsMainMenu = false;
+
         public Menu(string i_Title)
         {
             m_Title = i_Title;
@@ -36,6 +38,7 @@ namespace Ex04.Menus.Delegates
                 userWantsToGoBack = chooseMenuItem();
             }
         }
+
         private bool chooseMenuItem()
         {
             bool invalidInput = true;
@@ -45,7 +48,6 @@ namespace Ex04.Menus.Delegates
             {
                 try
                 {
-
                     userChoice = int.Parse(Console.ReadLine());
                     if (isUserChoiseValid(userChoice))
                     {
@@ -67,12 +69,10 @@ namespace Ex04.Menus.Delegates
                 }
                 catch (FormatException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
             }
@@ -80,10 +80,9 @@ namespace Ex04.Menus.Delegates
             return userWantsToGoBack;
         }
 
-        private void activateMenuItem(int v)
+        private void activateMenuItem(int i)
         {
-            this.m_MenuItems[v].Show();
-            
+            this.m_MenuItems[i].Show();
         }
 
         private bool isUserChoiseValid(int userChoise)

@@ -8,6 +8,7 @@ namespace Ex04.Menus.Delegates
         protected List<MenuItem> m_MenuItems;
 
         public abstract void Show();
+
         public string Title
         {
             get
@@ -25,6 +26,7 @@ namespace Ex04.Menus.Delegates
 
             m_MenuItems.Add(i_MenuItem);
         }
+
         public void RemoveMenuItem(MenuItem i_MenuItem)
         {
             m_MenuItems.Remove(i_MenuItem);

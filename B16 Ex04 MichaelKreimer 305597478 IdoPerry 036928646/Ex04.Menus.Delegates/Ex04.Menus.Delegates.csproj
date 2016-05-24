@@ -35,12 +35,13 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ActionItem.cs" />
+    <Compile Include="ActionItem.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Actions.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
-    <Compile Include="VersionAndActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

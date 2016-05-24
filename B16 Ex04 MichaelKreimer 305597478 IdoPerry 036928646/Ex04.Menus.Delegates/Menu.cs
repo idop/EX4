@@ -5,14 +5,16 @@ using System.Text;
 namespace Ex04.Menus.Delegates
 {
     public delegate void Notifier<T>(T i_Param);
-    class Menu : MenuItem
+
+    public class Menu : MenuItem
     {
-        private const string k_ChooseMenuItemMessage = "Please Choose one of the following options:";
+        private const string k_ChooseMenuItemMessage = "Please choose one of the following options:";
         private const string k_BackChoiseMessage = "Press 0 to go back to previous menu.";
         private const string k_ExitChoiseMessage = "Press 0 to exit.";
-        private const string k_InvalidInputMessage = "Invalid Choise please try again.";
+        private const string k_InvalidInputMessage = "Invalid choice please try again.";
         private const int k_ExitOrBackOptionValue = 0;
         private bool m_IsMainMenu = false;
+
         public Menu(string i_Title)
         {
             m_Title = i_Title;
@@ -36,26 +38,26 @@ namespace Ex04.Menus.Delegates
                 userWantsToGoBack = chooseMenuItem();
             }
         }
+
         private bool chooseMenuItem()
         {
             bool invalidInput = true;
             bool userWantsToGoBack = false;
-            int userChoise = 0;
+            int userChoice = 0;
             while (invalidInput)
             {
                 try
                 {
-
-                    userChoise = int.Parse(Console.ReadLine());
-                    if (isUserChoiseValid(userChoise))
+                    userChoice = int.Parse(Console.ReadLine());
+                    if (isUserChoiseValid(userChoice))
                     {
-                        if (userChoise == k_ExitOrBackOptionValue)
+                        if (userChoice == k_ExitOrBackOptionValue)
                         {
                             userWantsToGoBack = true;
                         }
                         else
                         {
-                            activateMenuItem(userChoise - 1);
+                            activateMenuItem(userChoice - 1);
                         }
 
                         invalidInput = false;
@@ -67,12 +69,10 @@ namespace Ex04.Menus.Delegates
                 }
                 catch (FormatException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-
                     Console.WriteLine(k_InvalidInputMessage);
                 }
             }
@@ -80,9 +80,9 @@ namespace Ex04.Menus.Delegates
             return userWantsToGoBack;
         }
 
-        private void activateMenuItem(int v)
+        private void activateMenuItem(int i)
         {
-            throw new NotImplementedException();
+            this.m_MenuItems[i].Show();
         }
 
         private bool isUserChoiseValid(int userChoise)

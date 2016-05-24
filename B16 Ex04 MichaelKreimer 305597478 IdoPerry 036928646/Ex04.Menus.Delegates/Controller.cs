@@ -47,7 +47,7 @@ namespace Ex04.Menus.Delegates
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
 
-        public void CountChars()
+        public void CountChars(object sender, EventArgs eventArgs)
         {
             int numberOfCharacter;
             string input;
@@ -59,7 +59,7 @@ namespace Ex04.Menus.Delegates
             waitForAnyKey();
         }
 
-        public void CountSpaces()
+        public void CountSpaces(object sender, EventArgs eventArgs)
         {
             int numberOfSpaces;
             string input;
@@ -71,21 +71,21 @@ namespace Ex04.Menus.Delegates
             waitForAnyKey();
         }
 
-        public void ShowDate()
+        public void ShowDate(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Today's date is: {0:d}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowTime()
+        public void ShowTime(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Current Time is: {0:T}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowVersion()
+        public void ShowVersion(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Version: 16.2.4.0");

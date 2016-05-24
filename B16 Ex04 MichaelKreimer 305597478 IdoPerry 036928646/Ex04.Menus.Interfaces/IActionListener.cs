@@ -2,6 +2,6 @@
 {
     public interface IActionListener
     {
-        void DoAction(ActionItem.eMenuAction i_MenuAction);
+        void DoAction(MenuItemUtils.eMenuAction i_MenuAction);
     }
 }

@@ -6,30 +6,21 @@ namespace Ex04.Menus.Interfaces
 {
     public class ActionItem : MenuItem
     {
-        private List<KeyValuePair<IActionListener, eMenuAction>> m_ActionListeners;
+        private List<KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>> m_ActionListeners;
 
-        public enum eMenuAction
-        {
-            ShowVersion,
-            CountChars,
-            CountSpace,
-            ShowDate,
-            ShowTime
-        }
-
-        public void AddActionListener(IActionListener i_Listener, eMenuAction i_MenuAction)
+        public void AddActionListener(IActionListener i_Listener, MenuItemUtils.eMenuAction i_MenuAction)
         {
             if (m_ActionListeners == null)
             {
-                m_ActionListeners = new List<KeyValuePair<IActionListener, eMenuAction>>();
+                m_ActionListeners = new List<KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>>();
             }
 
-            m_ActionListeners.Add(new KeyValuePair<IActionListener, eMenuAction>(i_Listener, i_MenuAction));
+            m_ActionListeners.Add(new KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>(i_Listener, i_MenuAction));
         }
 
-        public void RemoveActionListener(IActionListener i_Listener, eMenuAction i_MenuAction)
+        public void RemoveActionListener(IActionListener i_Listener, MenuItemUtils.eMenuAction i_MenuAction)
         {
-            m_ActionListeners.Remove(new KeyValuePair<IActionListener, eMenuAction>(i_Listener, i_MenuAction));
+            m_ActionListeners.Remove(new KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>(i_Listener, i_MenuAction));
             if (m_ActionListeners.Count == 0)
             {
                 m_ActionListeners = null;
@@ -40,7 +31,7 @@ namespace Ex04.Menus.Interfaces
         {
             if (m_ActionListeners != null)
             {
-                foreach (KeyValuePair<IActionListener, eMenuAction> listener in m_ActionListeners)
+                foreach (KeyValuePair<IActionListener, MenuItemUtils.eMenuAction> listener in m_ActionListeners)
                 {
                     listener.Key.DoAction(listener.Value);
                 }

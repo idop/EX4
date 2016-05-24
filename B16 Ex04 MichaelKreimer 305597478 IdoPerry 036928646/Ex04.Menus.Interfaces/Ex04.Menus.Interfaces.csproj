@@ -40,6 +40,7 @@
     <Compile Include="IActionListener.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="MenuItemUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

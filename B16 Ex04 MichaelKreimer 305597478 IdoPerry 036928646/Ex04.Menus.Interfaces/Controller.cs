@@ -20,10 +20,10 @@ namespace Ex04.Menus.Interfaces
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
             ActionItem action = new ActionItem("Show Time");
-            action.AddActionListener(this, ActionItem.eMenuAction.ShowTime);
+            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowTime);
             ShowDateTimeSubMenu.AddMenuItem(action);
             action = new ActionItem("Show Date");
-            action.AddActionListener(this, ActionItem.eMenuAction.ShowDate);
+            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowDate);
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
@@ -32,36 +32,36 @@ namespace Ex04.Menus.Interfaces
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
             ActionItem action = new ActionItem("Show Version");
-            action.AddActionListener(this, ActionItem.eMenuAction.ShowVersion);
+            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowVersion);
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
             action = new ActionItem("Chars Count");
-            action.AddActionListener(this, ActionItem.eMenuAction.CountChars);
+            action.AddActionListener(this, MenuItemUtils.eMenuAction.CountChars);
             ActionsSubMenu.AddMenuItem(action);
             action = new ActionItem("Count Spaces");
-            action.AddActionListener(this, ActionItem.eMenuAction.CountSpace);
+            action.AddActionListener(this, MenuItemUtils.eMenuAction.CountSpace);
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
         }
 
-        public void DoAction(ActionItem.eMenuAction i_MenuAction)
+        public void DoAction(MenuItemUtils.eMenuAction i_MenuAction)
         {
             switch (i_MenuAction)
             {
-                case ActionItem.eMenuAction.ShowVersion:
+                case MenuItemUtils.eMenuAction.ShowVersion:
                     showVersion();
                     break;
-                case ActionItem.eMenuAction.CountChars:
+                case MenuItemUtils.eMenuAction.CountChars:
                     countChars();
                     break;
-                case ActionItem.eMenuAction.CountSpace:
+                case MenuItemUtils.eMenuAction.CountSpace:
                     countSpaces();
                     break;
-                case ActionItem.eMenuAction.ShowDate:
+                case MenuItemUtils.eMenuAction.ShowDate:
                     showDate();
                     break;
-                case ActionItem.eMenuAction.ShowTime:
+                case MenuItemUtils.eMenuAction.ShowTime:
                     showTime();
                     break;
                 default:

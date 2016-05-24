@@ -7,7 +7,6 @@ namespace Ex04.Menus.Delegates
     public class Controller
     {
         private const bool v_IsMainMenu = true;
-        public readonly List<MenuItem> m_Employees = new List<MenuItem>();
         private Menu m_MainMenu;
 
         public void Init()

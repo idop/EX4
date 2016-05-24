@@ -4,8 +4,6 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-
-
     public class ActionItem : MenuItem
     {
         public ActionItem(string i_Title)

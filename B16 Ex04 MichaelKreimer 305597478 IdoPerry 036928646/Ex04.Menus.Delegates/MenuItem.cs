@@ -4,16 +4,19 @@ using System.Collections.Generic;
 namespace Ex04.Menus.Delegates
 {
     public delegate void EventHandler(object sender, EventArgs eventArgs);
+
     public abstract class MenuItem 
     {
         protected string m_Title;
         protected List<MenuItem> m_MenuItems;
+
         public event EventHandler Select;
 
         protected virtual void OnSelect(EventArgs e)
         {
             Select.Invoke(this, e);
         }
+
         public string Title
         {
             get

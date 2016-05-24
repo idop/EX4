@@ -22,14 +22,14 @@ namespace Ex04.Menus.Delegates
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
             ActionItem action = new ActionItem("Show Version");
-            action.Select += this.ShowVersion;
+            action.Select += this.showVersionItem_Select;
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
             action = new ActionItem("Chars Count");
-            action.Select += this.CountChars;
+            action.Select += this.countCharsItem_Select;
             ActionsSubMenu.AddMenuItem(action);
             action = new ActionItem("Count Spaces");
-            action.Select += this.CountSpaces;
+            action.Select += this.countSpacesItem_Select;
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
@@ -39,15 +39,15 @@ namespace Ex04.Menus.Delegates
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
             ActionItem action = new ActionItem("Show Time");
-            action.Select += this.ShowTime;
+            action.Select += this.showTimeItem_Select;
             ShowDateTimeSubMenu.AddMenuItem(action);
             action = new ActionItem("Show Date");
-            action.Select += this.ShowDate;
+            action.Select += this.showDateItem_Select;
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
 
-        public void CountChars(object sender, EventArgs eventArgs)
+        private void countCharsItem_Select(object sender, EventArgs eventArgs)
         {
             int numberOfCharacter;
             string input;
@@ -59,7 +59,7 @@ namespace Ex04.Menus.Delegates
             waitForAnyKey();
         }
 
-        public void CountSpaces(object sender, EventArgs eventArgs)
+        private void countSpacesItem_Select(object sender, EventArgs eventArgs)
         {
             int numberOfSpaces;
             string input;
@@ -71,21 +71,21 @@ namespace Ex04.Menus.Delegates
             waitForAnyKey();
         }
 
-        public void ShowDate(object sender, EventArgs eventArgs)
+        private void showDateItem_Select(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Today's date is: {0:d}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowTime(object sender, EventArgs eventArgs)
+        private void showTimeItem_Select(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Current Time is: {0:T}", Actions.GetCurrentDateTime());
             waitForAnyKey();
         }
 
-        public void ShowVersion(object sender, EventArgs eventArgs)
+        private void showVersionItem_Select(object sender, EventArgs eventArgs)
         {
             Console.Clear();
             Console.WriteLine("Version: 16.2.4.0");

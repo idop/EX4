@@ -24,7 +24,7 @@ namespace Ex04.Menus.Interfaces
             m_IsMainMenu = i_IsMainMenu;
         }
 
-        public void Show()
+        public override void SelectItem()
         {
             bool userWantsToGoBack = false;
             while (!userWantsToGoBack)
@@ -55,7 +55,7 @@ namespace Ex04.Menus.Interfaces
                         }
                         else
                         {
-                            activateMenuItem(userChoise - 1);
+                            m_MenuItems[userChoise - 1].SelectItem();
                         }
 
                         invalidInput = false;
@@ -76,19 +76,6 @@ namespace Ex04.Menus.Interfaces
             }
 
             return userWantsToGoBack;
-        }
-
-        private void activateMenuItem(int i_UserChoise)
-        {
-            MenuItem menuItemToActivate = m_MenuItems[i_UserChoise];
-            if(menuItemToActivate is Menu)
-            {
-                ((Menu)menuItemToActivate).Show();
-            }
-            else if(menuItemToActivate is ActionItem)
-            {
-                ((ActionItem)menuItemToActivate).NotifyAllListeners();
-            }
         }
 
         private bool isUserChoiseValid(int userChoise)

@@ -7,6 +7,8 @@ namespace Ex04.Menus.Interfaces
         protected string m_Title;
         protected List<MenuItem> m_MenuItems;
 
+        public abstract void SelectItem();
+
         public string Title
         {
             get

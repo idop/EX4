@@ -14,7 +14,10 @@ namespace Ex04.Menus.Delegates
 
         protected virtual void OnSelect(EventArgs e)
         {
-            Select.Invoke(this, e);
+            if (Select != null)
+            {
+                Select.Invoke(this, e);
+            }
         }
 
         public string Title

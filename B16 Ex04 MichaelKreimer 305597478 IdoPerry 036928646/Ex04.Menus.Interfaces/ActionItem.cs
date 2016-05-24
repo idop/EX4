@@ -6,41 +6,43 @@ namespace Ex04.Menus.Interfaces
 {
     public class ActionItem : MenuItem
     {
-        private List<KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>> m_ActionListeners;
+        private List<IActionListener> m_ActionListeners;
+        private int m_Id;
 
-        public void AddActionListener(IActionListener i_Listener, MenuItemUtils.eMenuAction i_MenuAction)
+        public void AddActionListener(IActionListener i_Listener)
         {
             if (m_ActionListeners == null)
             {
-                m_ActionListeners = new List<KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>>();
+                m_ActionListeners = new List<IActionListener>();
             }
 
-            m_ActionListeners.Add(new KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>(i_Listener, i_MenuAction));
+            m_ActionListeners.Add(i_Listener);
         }
 
-        public void RemoveActionListener(IActionListener i_Listener, MenuItemUtils.eMenuAction i_MenuAction)
+        public void RemoveActionListener(IActionListener i_Listener)
         {
-            m_ActionListeners.Remove(new KeyValuePair<IActionListener, MenuItemUtils.eMenuAction>(i_Listener, i_MenuAction));
+            m_ActionListeners.Remove(i_Listener);
             if (m_ActionListeners.Count == 0)
             {
                 m_ActionListeners = null;
             }
         }
 
-        public void NotifyAllListeners()
+        public override void SelectItem()
         {
             if (m_ActionListeners != null)
             {
-                foreach (KeyValuePair<IActionListener, MenuItemUtils.eMenuAction> listener in m_ActionListeners)
+                foreach (IActionListener listener in m_ActionListeners)
                 {
-                    listener.Key.DoAction(listener.Value);
+                    listener.OnSelect(m_Id);
                 }
             }
         }
 
-        public ActionItem(string i_Title)
+        public ActionItem(string i_Title , int i_Id)
         {
             m_Title = i_Title;
+            m_Id = i_Id;
         }
     }
 }

@@ -13,17 +13,17 @@ namespace Ex04.Menus.Interfaces
             m_MainMenu = new Menu("Welcome the the main menu implemented with interfaces", v_IsMainMenu);
             addVersionAndActionsSubMenu();
             addShowDateTimeSubMenu();
-            m_MainMenu.Show();
+            m_MainMenu.SelectItem();
         }
 
         private void addShowDateTimeSubMenu()
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            ActionItem action = new ActionItem("Show Time");
-            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowTime);
+            ActionItem action = new ActionItem("Show Time",(int)MenuItemUtils.eMenuAction.ShowTime);
+            action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
-            action = new ActionItem("Show Date");
-            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowDate);
+            action = new ActionItem("Show Date",(int)MenuItemUtils.eMenuAction.ShowDate);
+            action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
@@ -31,23 +31,23 @@ namespace Ex04.Menus.Interfaces
         private void addVersionAndActionsSubMenu()
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
-            ActionItem action = new ActionItem("Show Version");
-            action.AddActionListener(this, MenuItemUtils.eMenuAction.ShowVersion);
+            ActionItem action = new ActionItem("Show Version", (int)MenuItemUtils.eMenuAction.ShowVersion);
+            action.AddActionListener(this);
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
-            action = new ActionItem("Chars Count");
-            action.AddActionListener(this, MenuItemUtils.eMenuAction.CountChars);
+            action = new ActionItem("Chars Count", (int)MenuItemUtils.eMenuAction.CountChars);
+            action.AddActionListener(this);
             ActionsSubMenu.AddMenuItem(action);
-            action = new ActionItem("Count Spaces");
-            action.AddActionListener(this, MenuItemUtils.eMenuAction.CountSpace);
+            action = new ActionItem("Count Spaces", (int)MenuItemUtils.eMenuAction.CountSpace);
+            action.AddActionListener(this);
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
         }
 
-        public void DoAction(MenuItemUtils.eMenuAction i_MenuAction)
+        public void OnSelect(int i_Id)
         {
-            switch (i_MenuAction)
+            switch ((MenuItemUtils.eMenuAction) i_Id)
             {
                 case MenuItemUtils.eMenuAction.ShowVersion:
                     showVersion();

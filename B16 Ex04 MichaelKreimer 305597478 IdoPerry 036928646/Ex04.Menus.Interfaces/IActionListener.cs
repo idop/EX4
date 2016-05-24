@@ -2,6 +2,6 @@
 {
     public interface IActionListener
     {
-        void DoAction(MenuItemUtils.eMenuAction i_MenuAction);
+        void OnSelect(int i_Id);
     }
 }

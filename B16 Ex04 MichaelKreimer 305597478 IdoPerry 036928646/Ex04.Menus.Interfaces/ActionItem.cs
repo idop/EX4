@@ -39,7 +39,7 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public ActionItem(string i_Title , int i_Id)
+        public ActionItem(string i_Title, int i_Id)
         {
             m_Title = i_Title;
             m_Id = i_Id;

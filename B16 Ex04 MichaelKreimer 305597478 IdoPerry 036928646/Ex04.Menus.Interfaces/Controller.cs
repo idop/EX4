@@ -19,10 +19,10 @@ namespace Ex04.Menus.Interfaces
         private void addShowDateTimeSubMenu()
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
-            ActionItem action = new ActionItem("Show Time",(int)MenuItemUtils.eMenuAction.ShowTime);
+            ActionItem action = new ActionItem("Show Time", (int)MenuItemUtils.eMenuAction.ShowTime);
             action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
-            action = new ActionItem("Show Date",(int)MenuItemUtils.eMenuAction.ShowDate);
+            action = new ActionItem("Show Date", (int)MenuItemUtils.eMenuAction.ShowDate);
             action.AddActionListener(this);
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);

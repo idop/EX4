@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Ex04.Menus.Delegates
 {
+    public delegate void EventHandler(object sender, EventArgs eventArgs);
     public abstract class MenuItem 
     {
         protected string m_Title;
         protected List<MenuItem> m_MenuItems;
+        public event EventHandler Select;
 
-        public abstract void Show();
-
+        protected virtual void OnSelect(EventArgs e)
+        {
+            Select.Invoke(this, e);
+        }
         public string Title
         {
             get
@@ -16,6 +21,8 @@ namespace Ex04.Menus.Delegates
                 return m_Title;
             }
         }
+
+        public abstract void SelectItem();
 
         public void AddMenuItem(MenuItem i_MenuItem)
         {

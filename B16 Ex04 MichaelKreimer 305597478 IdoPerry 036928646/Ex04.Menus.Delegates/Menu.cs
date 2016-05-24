@@ -26,7 +26,7 @@ namespace Ex04.Menus.Delegates
             m_IsMainMenu = i_IsMainMenu;
         }
 
-        public override void Show()
+        public override void SelectItem()
         {
             bool userWantsToGoBack = false;
             while (!userWantsToGoBack)
@@ -57,7 +57,7 @@ namespace Ex04.Menus.Delegates
                         }
                         else
                         {
-                            activateMenuItem(userChoice - 1);
+                            m_MenuItems[userChoice - 1].SelectItem();
                         }
 
                         invalidInput = false;
@@ -78,11 +78,6 @@ namespace Ex04.Menus.Delegates
             }
 
             return userWantsToGoBack;
-        }
-
-        private void activateMenuItem(int i)
-        {
-            this.m_MenuItems[i].Show();
         }
 
         private bool isUserChoiseValid(int userChoise)

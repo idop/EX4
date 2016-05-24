@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    public delegate void ActionDelegate(object sender, EventArgs eventArgs);
+
 
     public class ActionItem : MenuItem
     {
@@ -13,11 +13,9 @@ namespace Ex04.Menus.Delegates
             m_Title = i_Title;
         }
 
-        public event ActionDelegate m_ShowAction;
-
-        public override void Show()
+        public override void SelectItem()
         {
-            m_ShowAction.Invoke(this, new EventArgs());
+            OnSelect(new EventArgs());
         }
     }
 }

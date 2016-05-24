@@ -15,21 +15,21 @@ namespace Ex04.Menus.Delegates
             m_MainMenu = new Menu("Welcome the the main menu implemented with delegates", v_IsMainMenu);
             addVersionAndActionsSubMenu();
             addShowDateTimeSubMenu();
-            m_MainMenu.Show();
+            m_MainMenu.SelectItem();
         }
 
         private void addVersionAndActionsSubMenu()
         {
             Menu versionAndActionsSubMenu = new Menu("Version and Actions");
             ActionItem action = new ActionItem("Show Version");
-            action.m_ShowAction += this.ShowVersion;
+            action.Select += this.ShowVersion;
             versionAndActionsSubMenu.AddMenuItem(action);
             Menu ActionsSubMenu = new Menu("Actions");
             action = new ActionItem("Chars Count");
-            action.m_ShowAction += this.CountChars;
+            action.Select += this.CountChars;
             ActionsSubMenu.AddMenuItem(action);
             action = new ActionItem("Count Spaces");
-            action.m_ShowAction += this.CountSpaces;
+            action.Select += this.CountSpaces;
             ActionsSubMenu.AddMenuItem(action);
             versionAndActionsSubMenu.AddMenuItem(ActionsSubMenu);
             m_MainMenu.AddMenuItem(versionAndActionsSubMenu);
@@ -39,10 +39,10 @@ namespace Ex04.Menus.Delegates
         {
             Menu ShowDateTimeSubMenu = new Menu("Show Date/Time");
             ActionItem action = new ActionItem("Show Time");
-            action.m_ShowAction += this.ShowTime;
+            action.Select += this.ShowTime;
             ShowDateTimeSubMenu.AddMenuItem(action);
             action = new ActionItem("Show Date");
-            action.m_ShowAction += this.ShowDate;
+            action.Select += this.ShowDate;
             ShowDateTimeSubMenu.AddMenuItem(action);
             m_MainMenu.AddMenuItem(ShowDateTimeSubMenu);
         }
